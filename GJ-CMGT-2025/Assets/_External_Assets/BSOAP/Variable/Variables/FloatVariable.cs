@@ -37,5 +37,16 @@ namespace BSOAP.Variables
                 OnValueChanged?.Invoke(VariableSo.Value);
             } 
         }
+        
+        public void ClearInvocationList()
+        {
+            if (OnValueChanged == null)
+                return;
+            
+            foreach (Delegate subscriber in OnValueChanged.GetInvocationList())
+            {
+                OnValueChanged -= (FloatDelegate) subscriber;
+            }
+        }
     }
 }

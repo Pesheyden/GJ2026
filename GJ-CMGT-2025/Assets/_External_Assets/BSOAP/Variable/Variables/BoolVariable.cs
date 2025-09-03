@@ -17,7 +17,7 @@ namespace BSOAP.Variables
         /// <summary>
         /// Event triggered when the boolean value changes.
         /// </summary>
-        public event BoolDelegate OnValueChanged;
+        public BoolDelegate OnValueChanged;
         
         /// <summary>
         /// Scriptable object that holds the boolean value.
@@ -36,6 +36,17 @@ namespace BSOAP.Variables
                 VariableSo.Value = value;
                 OnValueChanged?.Invoke(VariableSo.Value);
             } 
+        }
+        
+        public void ClearInvocationList()
+        {
+            if (OnValueChanged == null)
+                return;
+            
+            foreach (Delegate subscriber in OnValueChanged.GetInvocationList())
+            {
+                OnValueChanged -= (BoolDelegate) subscriber;
+            }
         }
     }
 }
