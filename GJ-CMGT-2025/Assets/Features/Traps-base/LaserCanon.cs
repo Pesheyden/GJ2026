@@ -17,6 +17,7 @@ public class LaserCanon : Trap
     {
         base.Awake();   
         ActionEvent.RegisterCommand(CommandFactory.GenericCommand(this,nameof(RegisterAction)));
+        Debug.Log(this);
     }
 
     protected override void Activate()

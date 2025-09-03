@@ -52,10 +52,12 @@ public class Trap : MonoBehaviour
     {
         if (Physics.Raycast(transform.position, direction, out var hit, maxDistance))
         {
+            Debug.Log(this + " " + hit);
             if (hit.collider.CompareTag("Player"))
                 return true;
-        }
 
+        }
+        Debug.DrawRay(transform.position, direction, Color.coral, 2);
         return false;
     }
 }
