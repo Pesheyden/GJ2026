@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
@@ -25,6 +26,4 @@ public class EventSo : ScriptableObject
     {
         _eventListeners.Remove(eventListener);
     }
-    
-
 }

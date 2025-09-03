@@ -54,6 +54,20 @@ MonoBehaviour:
   m_Name: Vector4EventSo
   m_EditorClassIdentifier: 
   Value: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &-4540122137298138129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bd650e1939d4a948d45aade85001c41, type: 3}
+  m_Name: CommandEventSo
+  m_EditorClassIdentifier: 
+  ExpectedDynamicParameters: []
+  _debugMod: 0
 --- !u!114 &-4303844084597113226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,29 +154,30 @@ MonoBehaviour:
   m_Name: StatsExampleSO
   m_EditorClassIdentifier: 
   BoolVariable:
-    VariableSo: {fileID: 460259693660171866}
+    VariableSo: {fileID: 0}
   DoubleVariable:
-    VariableSo: {fileID: 8882120216474473137}
+    VariableSo: {fileID: 0}
   FloatVariable:
-    VariableSo: {fileID: -4303844084597113226}
+    VariableSo: {fileID: 0}
   IntVariable:
-    VariableSo: {fileID: -1172677980428212498}
+    VariableSo: {fileID: 0}
   ObjectVariable:
-    VariableSo: {fileID: 501365922255925705}
+    VariableSo: {fileID: 0}
   Vector2Variable:
-    VariableSo: {fileID: -6574336043597804643}
+    VariableSo: {fileID: 0}
   Vector3Variable:
-    VariableSo: {fileID: -2249260155904207275}
+    VariableSo: {fileID: 0}
   Vector4Variable:
-    VariableSo: {fileID: -2263667188860821443}
-  BoolEventSo: {fileID: 1923533116788404692}
-  StringEventSo: {fileID: -5145185322261915330}
-  FloatEventSo: {fileID: 8747293585304528507}
-  IntEventSo: {fileID: 2528827575107248223}
-  ObjectEventSo: {fileID: 6806278583081739940}
-  Vector2EventSo: {fileID: -6662581168186022535}
-  Vector3EventSo: {fileID: -69366989221396168}
-  Vector4EventSo: {fileID: -4695546312360460270}
+    VariableSo: {fileID: 0}
+  BoolEventSo: {fileID: 0}
+  StringEventSo: {fileID: 0}
+  FloatEventSo: {fileID: 0}
+  IntEventSo: {fileID: 0}
+  ObjectEventSo: {fileID: 0}
+  Vector2EventSo: {fileID: 0}
+  Vector3EventSo: {fileID: 0}
+  Vector4EventSo: {fileID: 0}
+  CommandEventSo: {fileID: 0}
 --- !u!114 &460259693660171866
 MonoBehaviour:
   m_ObjectHideFlags: 0

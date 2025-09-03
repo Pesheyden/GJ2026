@@ -1,3 +1,4 @@
+using BSOAP.Events;
 using BSOAP.Variables;
 using UnityEngine;
 
@@ -36,4 +37,6 @@ public class StatsExampleSO : ScriptableObject
     public Vector3EventSo Vector3EventSo;
     [SubAsset]
     public Vector4EventSo Vector4EventSo;
+    [SubAsset] 
+    public CommandEventSo CommandEventSo;
 }
