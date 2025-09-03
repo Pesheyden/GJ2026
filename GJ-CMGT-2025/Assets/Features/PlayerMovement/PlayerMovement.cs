@@ -1,9 +1,11 @@
+using BSOAP.Events;
 using UnityEngine;
 using static UnityEngine.Analytics.IAnalytic;
 
 public class PlayerMovement : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private CommandEventSo _actionEvent;
     public Transform player;
     public float distance;
     public float yDistance;
@@ -29,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
         {
             direction = Vector3.forward;
             player.position += distance * direction;
+            _actionEvent.Raise();
         }
         else if (Input.GetKeyDown(KeyCode.A) && noCollision(player.position, Vector3.left, distance))
         {
@@ -39,11 +42,13 @@ public class PlayerMovement : MonoBehaviour
             }
            
             player.position += distance * direction;
+            _actionEvent.Raise();
         }
         else if (Input.GetKeyDown(KeyCode.S) && noCollision(player.position, Vector3.back, distance))
         {
             direction = Vector3.back;
             player.position += distance * direction;
+            _actionEvent.Raise();
         }
         else if (Input.GetKeyDown(KeyCode.D) && noCollision(player.position, Vector3.right, distance))
         {
@@ -54,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
             }
            
             player.position += distance * direction;
+            _actionEvent.Raise();
         }
         else if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -73,8 +79,8 @@ public class PlayerMovement : MonoBehaviour
            
             player.position += yDistance * direction;
             player.Rotate(0, 0, 180);
-            camera.GetComponent<Camera>().offset.y *= -1;
-            camera.GetComponent<Camera>().camRotationTo = Quaternion.Euler(camera.eulerAngles.x, camera.eulerAngles.y, camera.eulerAngles.z + 180);
+            camera.GetComponent<Camera_Controller>().offset.y *= -1;
+            camera.GetComponent<Camera_Controller>().camRotationTo = Quaternion.Euler(camera.eulerAngles.x, camera.eulerAngles.y, camera.eulerAngles.z + 180);
 
 
         }
