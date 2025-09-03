@@ -4,6 +4,18 @@ using static UnityEngine.Analytics.IAnalytic;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private static PlayerMovement _instance;
+    public static PlayerMovement Instance
+    {
+        get
+        {
+            if (!_instance)
+                _instance = FindAnyObjectByType<PlayerMovement>();
+
+            return _instance;
+        }
+    }
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] private CommandEventSo _actionEvent;
     public Transform player;
@@ -12,14 +24,6 @@ public class PlayerMovement : MonoBehaviour
     Vector3 direction;
     bool onGRound = true;
     public Transform camera;
-    
-    //transform.position += d * direction
-
-    void Start()
-    {
-        
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -63,28 +67,31 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (onGRound)
-            {
-                direction = Vector3.up;
-                onGRound = false;
-                
-            }
-            else
-            {
-                direction = Vector3.down;
-                onGRound = true;
-                
-            }
-
-           
-            player.position += yDistance * direction;
-            player.Rotate(0, 0, 180);
-            camera.GetComponent<Camera_Controller>().offset.y *= -1;
-            camera.GetComponent<Camera_Controller>().camRotationTo = Quaternion.Euler(camera.eulerAngles.x, camera.eulerAngles.y, camera.eulerAngles.z + 180);
-
-
+            ChangeGravity();
         }
 
+    }
+
+    public void ChangeGravity()
+    {
+        if (onGRound)
+        {
+            direction = Vector3.up;
+            onGRound = false;
+                
+        }
+        else
+        {
+            direction = Vector3.down;
+            onGRound = true;
+                
+        }
+
+           
+        player.position += yDistance * direction;
+        player.Rotate(0, 0, 180);
+        camera.GetComponent<Camera_Controller>().offset.y *= -1;
+        camera.GetComponent<Camera_Controller>().camRotationTo = Quaternion.Euler(camera.eulerAngles.x, camera.eulerAngles.y, camera.eulerAngles.z + 180);
     }
 
     bool noCollision(Vector3 position,Vector3 direction, float maxDistance)

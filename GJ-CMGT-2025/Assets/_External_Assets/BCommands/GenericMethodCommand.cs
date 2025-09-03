@@ -2,6 +2,7 @@ using System;
 using System.Collections.Concurrent;
 using System.Reflection;
 using System.Text;
+using UnityEngine;
 
 namespace BCommands
 {
@@ -12,8 +13,7 @@ namespace BCommands
     public class GenericMethodCommand : ICommand
     {
         private static readonly ConcurrentDictionary<string, MethodInfo> MethodCache = new();
-
-        private readonly string _key;
+        
         private readonly object _target;
         private readonly string _methodName;
         private readonly object[] _parameters;
@@ -32,20 +32,22 @@ namespace BCommands
             _parameters = parameters ?? Array.Empty<object>();
             _targetType = _target.GetType();
             
-            
-            _key = GetKey();
         }
 
         public string GetKey()
         {
-            if (_key != null)
-                return _key;
-            
             StringBuilder sb = new StringBuilder();
             
-            string a = $"{_targetType.FullName}.{_methodName}.{_parameters.Length}:";
+            if (_target is UnityEngine.Object unityObject)
+            {
+                sb.Append($"{_targetType.FullName}.{unityObject.GetInstanceID()}.{_methodName}.{_parameters.Length}:");
+            }
+            else
+            {
+                // Fallback for non-Unity objects
+                sb.Append($"{_targetType.FullName}.{_methodName}.{_parameters.Length}:");
+            }
             
-            sb.Append(a);
             foreach (var parameter in _parameters)
             {
                 sb.Append(parameter.GetType());
@@ -60,18 +62,18 @@ namespace BCommands
         public void Execute()
         {
             
-            if (!MethodCache.TryGetValue(_key, out var methodInfo))
+            if (!MethodCache.TryGetValue(GetKey(), out var methodInfo))
             {
                 methodInfo = CommandsUtility.FindMethod(_targetType, _methodName, _parameters);
                 if (methodInfo == null)
                     throw new MissingMethodException(
                         $"{_targetType.FullName} does not contain method '{_methodName}' with {_parameters.Length} parameters");
 
-                MethodCache[_key] = methodInfo;
+                MethodCache[GetKey()] = methodInfo;
             }
 
             CommandsUtility.ValidateParameterTypes(methodInfo, _parameters);
-
+            
             methodInfo.Invoke(_target, _parameters);
         }
 
