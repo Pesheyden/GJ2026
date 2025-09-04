@@ -288,7 +288,7 @@ MonoBehaviour:
   _gameDataSo: {fileID: 11400000, guid: e425077c84e5d7e41aaff19579ef1bed, type: 2}
   _audioClip: {fileID: 0}
   _laserPrefab: {fileID: 2488089261571577250, guid: bcd9439ae55722a4088dd9a61736b1b6, type: 3}
-  _range: 2
+  _range: 4
   _direction: {x: 1, y: 0, z: 0}
   _laserBeamRotation: {x: 0, y: 0, z: 0}
   _laserProjectilesLifeTime: 1
@@ -341,7 +341,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 1.293}
+  m_AnchoredPosition: {x: 0.01, y: 1.036}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &3267944117487869328
@@ -445,7 +445,7 @@ Transform:
   m_GameObject: {fileID: 9156976235530573073}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 1.244, z: 0}
+  m_LocalPosition: {x: -0.014000088, y: 0.987, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []

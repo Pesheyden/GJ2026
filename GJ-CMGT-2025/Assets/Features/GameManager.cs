@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     }
 
     [SerializeField] private GameObject _gameEndBlock;
+    [SerializeField] private GameObject _gameWinBlock;
     public bool HasKey;
 
     public void GameEnd()
@@ -28,7 +29,10 @@ public class GameManager : MonoBehaviour
 
     public void GameWin()
     {
-        
+        GameObject.FindGameObjectWithTag("Player").SetActive(false);
+        _gameWinBlock.SetActive(true);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void SetTrapsVisible(bool value)

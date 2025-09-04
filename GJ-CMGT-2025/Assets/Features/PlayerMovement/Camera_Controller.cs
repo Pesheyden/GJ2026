@@ -12,7 +12,7 @@ public class Camera_Controller : MonoBehaviour
 
     void Start()
     {
-        
+        offset = camera.position - target.position;
     }
 
     // Update is called once per frame
