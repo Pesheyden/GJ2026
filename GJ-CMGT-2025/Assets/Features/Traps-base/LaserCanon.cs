@@ -13,9 +13,9 @@ public class LaserCanon : Trap
 
     private List<GameObject> _laserProjectiles = new List<GameObject>();
 
-    protected override void Awake()
+    protected override void Start()
     {
-        base.Awake();   
+        base.Start();   
         ActionEvent.RegisterCommand(CommandFactory.GenericCommand(this,nameof(RegisterAction)));
         Debug.Log(this);
     }

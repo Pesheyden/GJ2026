@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BSOAP.Events.CommandEventSo
   ExpectedDynamicParameters: []
   _debugMod: 0
-  _reset: 0
+  _reset: 1

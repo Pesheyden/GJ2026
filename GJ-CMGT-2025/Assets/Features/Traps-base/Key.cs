@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class Key : Trap
 {
-    protected override void Awake()
+    protected override void Start()
     {
-        base.Awake();
+        base.Start();
         ActionEvent.RegisterCommand(CommandFactory.GenericCommand(this,nameof(RegisterAction)));
     }
     

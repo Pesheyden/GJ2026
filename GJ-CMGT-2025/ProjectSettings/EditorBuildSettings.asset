@@ -8,9 +8,24 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/Features/Traps-base/Traps-base-TestScene.unity
     guid: 106daa1524dbb35449e2560b7c04681f
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 429f217ed5bdf184bbe1e3ae5289a95d
+  - enabled: 1
+    path: Assets/Scenes/level 1.unity
+    guid: 2b4639c1d53ae674093437360e04188e
+  - enabled: 1
+    path: Assets/Scenes/level4.unity
+    guid: d0f5b9af5bd174a4397045283dbe484f
+  - enabled: 1
+    path: Assets/Scenes/Level5.unity
+    guid: e4f3b021b9b694a4cb08f4e9f74dda48
+  - enabled: 1
+    path: Assets/Scenes/Level6.unity
+    guid: 9d9ac58140b23674d966279491219a1c
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

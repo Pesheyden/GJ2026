@@ -9,9 +9,9 @@ public class KeyPad : Trap
     [SerializeField] private int _padsAmount;
     [SerializeField] private UnityEvent _onAllPadsActivated;
     
-    protected override void Awake()
+    protected override void Start()
     {
-        base.Awake();
+        base.Start();
         ActionEvent.RegisterCommand(CommandFactory.GenericCommand(this,nameof(RegisterAction)));
     }
     

@@ -19,7 +19,7 @@ public class Trap : MonoBehaviour
     [SerializeField] private AudioClip _audioClip;
     
 
-    protected virtual void Awake()
+    protected virtual void Start()
     {
         _audioSource = GetComponent<AudioSource>();
 

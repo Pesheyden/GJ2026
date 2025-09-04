@@ -4,9 +4,9 @@ using UnityEngine;
 public class Slowtrap : Trap
 {
     private bool _wasTriggered = false;
-    protected override void Awake()
+    protected override void Start()
     {
-        base.Awake();
+        base.Start();
         ActionEvent.RegisterCommand(CommandFactory.GenericCommand(this,nameof(RegisterAction)));
     }
     
